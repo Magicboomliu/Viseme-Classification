@@ -78,6 +78,9 @@ if __name__ == "__main__":
     # Run DNN (tensorflow and Keras are required)
     os.system("dnn.py") # Optional
 ```
+![](https://github.com/Magicboomliu/Viseme-Classification/blob/main/00000.png)    
+
+The reason I use a pipeline is the dataset is to big for memory, it is better to do operations seperately to save times.  
 
 
 
