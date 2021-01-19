@@ -1,13 +1,13 @@
 # Viseme-Classification
-A pipeline from Dataset Gathering,Data annotations, Model training,Model Evaluation for viseme (visual sound phoneme)  classification  
+A pipeline from Dataset Gathering, Data annotations, Model training, Model Evaluation for viseme (visual sound phoneme) classification  
 
 ### How Can I training the data if I have the wav files and Corresponding Viseme tags？  
-*If you want to train it in Python , Make sure you have following site packages*:  
+*If you want to train it in Python, make sure you have the following site packages*:  
 * numpy  
 * sklearn  
 * librosa  
-* tensorflow(Optional)  
-* keras(Optinal)  
+* tensorflow  (Optional)  
+* keras (Optional)  
 
 
 For this question, you can see the simple of the `'Data Triaining'` File.   
@@ -32,16 +32,16 @@ This is the Tree Structure of the Data Training File
 └── svm.py
 ```
 
-In this directory, DataSet contains the wav_data and the label_data labelled by Oculus OVRlipSync([Oculus OVRlipSync reference](https://developer.oculus.com/documentation/native/audio-ovrlipsync-native/))
+In this directory, DataSet contains the wav_data and the label_data labelled by Oculus OVRlipSync ([Oculus OVRlipSync reference](https://developer.oculus.com/documentation/native/audio-ovrlipsync-native/))
 | folder | files contains |
 | ------ | ------ |
 | wav_data | 7820 wav files |
 | label | 7820 label txt files |  
 
 #### More about this dataset:  
- * There are 7280 wav files and their corresponding visme labels. (Data source : AISHELL dataset).  
- * All wav files are 16 bit, with a 16KHz Sample Rate, The channel is Mono( Only 1 channel).  
- * All the wav file have been spilt into frames, the frame length is 16ms，and the frame shift(which means frame's sample step) is 8ms .  
+ * There are 7280 wav files and their corresponding visme labels. (Data source: AISHELL dataset).  
+ * All wav files are 16 bit, with a 16KHz Sample Rate. The channel is Mono (Only 1 channel).  
+ * All the wav file have been split into frames, the frame length is 16ms，and the frame shift (which means frame's sample step) is 8ms.  
  * The labels is 15 dim for 15 Viseme. For each Viseme, You can see here [Viseme Reference](https://developer.oculus.com/documentation/native/audio-ovrlipsync-viseme-reference)  
  * There is a Python Interface for this datatset for fast via named `'explore_data.py'` 。 
 
@@ -49,18 +49,18 @@ In this directory, DataSet contains the wav_data and the label_data labelled by 
 
 
  
- #### Here is the recommend Way to Training Your Data : Run the Pipeline.py  
+ #### Here is the recommended Way to Training Your Data: Run the Pipeline.py  
  ```
 import os
 
 if __name__ == "__main__":
-    # Get the data, save in into pickle(in case of the file is to big)
+    # Get the data, save in into pickle (in case of the file is to big)
     os.system("python example.py")
-    # Extract mfcc (librosa is requried), save in into pickle
+    # Extract mfcc (librosa is required), save in into pickle
     os.system("extract_mfcc.py")
-    # Reblance the samples, save it into pickle
+    # Rebalance the samples, save it into pickle
     os.system("rebalance_samples.py")
-    # Run SVM(Sklearn is requried)
+    # Run SVM(Sklearn is required)
     os.system("svm.py")
     # Run DNN (tensorflow and Keras are required)
     os.system("dnn.py") # Optional
@@ -109,7 +109,7 @@ This code generate a mfcc pickle file in line 189 :
          pickle.dump(dct,f1)
 ```  
 * #### STEP THREE : Balance the sample data:   
-The data which we get in following instructions have inbalance samples among different categories. So we do downsamlping and reduce all category counts into the smallest one.   
+The data which we get in following instructions have inbalance samples among different categories. So we do downsampling and reduce all category counts into the smallest one.   
 Run `rebalance_samples.py`  
 
 This code generate a rebalance pickle file in line 86:   
